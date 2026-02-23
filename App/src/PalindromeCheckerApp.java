@@ -1,5 +1,4 @@
 import java.util.Scanner;
-
 public class PalindromeCheckerApp {
 
     public static void main(String[] args) {
@@ -9,12 +8,24 @@ public class PalindromeCheckerApp {
         System.out.print("Enter a string: ");
         String input = sc.nextLine();
 
-        String reversed = "";
+        char[] characters = input.toCharArray();
 
-        for (int i = input.length() - 1; i >= 0; i--) {
-            reversed = reversed + input.charAt(i);
+        int start = 0;
+        int end = characters.length - 1;
+        boolean isPalindrome = true;
+
+        while (start < end) {
+
+            if (characters[start] != characters[end]) {
+                isPalindrome = false;
+                break;
+            }
+
+            start++;
+            end--;
         }
-        if (input.equals(reversed)) {
+
+        if (isPalindrome) {
             System.out.println("It is a Palindrome");
         } else {
             System.out.println("Not a Palindrome");
